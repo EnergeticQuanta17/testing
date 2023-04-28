@@ -1,0 +1,30 @@
+1. https://godotengine.org/
+2. https://github.com/leereilly/games
+3. https://ditto-cp.sourceforge.io/
+4. https://www.filejuggler.com/
+5. https://www.voidtools.com/
+6. https://neosmart.net/EasySwitch/
+7. https://www.autohotkey.com/
+8. https://www.launchy.net/
+9. https://github.com/alacritty/alacritty
+10. https://ttyplus.com/multi-tabbed-putty/
+11. https://github.com/h2oai/awesome-h2o#readme
+12. https://github.com/likedan/Awesome-CoreML-Models#readme
+13. https://github.com/desireevl/awesome-quantum-computing#readme
+14. https://github.com/rossant/awesome-math#readme
+15. https://github.com/prabhupant/python-ds
+16. https://github.com/grantjenks/python-sortedcontainers
+17. https://github.com/TheAlgorithms/Python
+18. https://github.com/pytransitions/transitions
+19. https://github.com/faif/python-patterns
+20. https://github.com/tylerlaberge/PyPattyrn
+21. https://github.com/vinta/awesome-python
+22. https://docs.python.org/3/library/asyncio.html
+23. 
+24. 
+25. 
+26. 
+27. 
+28. 
+29. 
+30. 
