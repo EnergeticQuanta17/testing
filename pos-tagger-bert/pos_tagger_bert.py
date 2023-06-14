@@ -205,9 +205,9 @@ UD_ENGLISH_TEST = 'en_partut-ud-test.conllu'
 
 def download_files():
     print('Downloading English treebank...')
-    urllib.request.urlretrieve('http://archive.aueb.gr:8085/files/en_partut-ud-dev.conllu', 'en_partut-ud-dev.conllu')
-    urllib.request.urlretrieve('http://archive.aueb.gr:8085/files/en_partut-ud-test.conllu', 'en_partut-ud-test.conllu')
-    urllib.request.urlretrieve('http://archive.aueb.gr:8085/files/en_partut-ud-train.conllu', 'en_partut-ud-train.conllu')
+    urllib.request.urlretrieve('https://raw.githubusercontent.com/UniversalDependencies/UD_English-ParTUT/r2.7/en_partut-ud-dev.conllu', 'en_partut-ud-dev.conllu')
+    urllib.request.urlretrieve('https://raw.githubusercontent.com/UniversalDependencies/UD_English-ParTUT/r2.7/en_partut-ud-test.conllu', 'en_partut-ud-test.conllu')
+    urllib.request.urlretrieve('https://raw.githubusercontent.com/UniversalDependencies/UD_English-ParTUT/r2.7/en_partut-ud-train.conllu', 'en_partut-ud-train.conllu')
     print('Treebank downloaded.')
 
 
