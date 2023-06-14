@@ -6,7 +6,7 @@
 
 # # Keras BERT implementation
 
-# In[2]:
+# In[7]:
 
 
 # First install some extra packages
@@ -14,23 +14,22 @@
 # ! pip install pydot
 # ! pip install graphiz
 # ! pip install bert-tensorflow
+get_ipython().system('pip install tensorflow')
 
 
-# In[1]:
+# In[10]:
 
 
 from numpy.random import seed
 seed(1)
-import tensorflow as tf
-tf.compat.v1.disable_v2_behavior()
-
-tf.random.set_seed(2)
+from tensorflow import set_random_seed
+set_random_seed(2)
 import pyconll, keras, pickle, os, random, nltk, datetime, warnings, gc, urllib.request, zipfile, collections
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.utils import shuffle
 from sklearn.metrics import recall_score, precision_score, classification_report, accuracy_score, confusion_matrix, f1_score
-# from sklearn.metrics.classification import UndefinedMetricWarning
+from sklearn.metrics.classification import UndefinedMetricWarning
 
 from keras.models import Sequential, Model
 from keras.layers import Embedding, Dense, Input, concatenate, Layer, Lambda, Dropout, Activation
@@ -40,17 +39,18 @@ from keras.models import load_model
 from keras.utils import plot_model
 from keras.utils.np_utils import to_categorical
 
+import tensorflow as tf
 import tensorflow_hub as hub
 from bert.tokenization import FullTokenizer
 
-from tqdm import tqdm
-# from IPython.display import Image 
-# warnings.filterwarnings(action='ignore', category=UndefinedMetricWarning)
+from tqdm import tqdm_notebook
+from IPython.display import Image 
+warnings.filterwarnings(action='ignore', category=UndefinedMetricWarning)
 
 
 # # Various plot functions
 
-# In[2]:
+# In[ ]:
 
 
 def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
@@ -82,7 +82,7 @@ def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
     return plt
 
 
-# In[3]:
+# In[ ]:
 
 
 def plot_confusion_matrix(f1,
@@ -164,7 +164,7 @@ def plot_confusion_matrix(f1,
     plt.xlabel('Predicted label\naccuracy={:0.4f}; misclass={:0.4f}; f1-score={:0.4f}'.format(accuracy, misclass, f1))
 
 
-# In[4]:
+# In[ ]:
 
 
 def plot_acc():
@@ -177,7 +177,7 @@ def plot_acc():
     plt.show()
 
 
-# In[5]:
+# In[ ]:
 
 
 def plot_loss():
@@ -205,9 +205,9 @@ UD_ENGLISH_TEST = 'en_partut-ud-test.conllu'
 
 def download_files():
     print('Downloading English treebank...')
-    urllib.request.urlretrieve('https://raw.githubusercontent.com/UniversalDependencies/UD_English-ParTUT/r2.7/en_partut-ud-dev.conllu', 'en_partut-ud-dev.conllu')
-    urllib.request.urlretrieve('https://raw.githubusercontent.com/UniversalDependencies/UD_English-ParTUT/r2.7/en_partut-ud-test.conllu', 'en_partut-ud-test.conllu')
-    urllib.request.urlretrieve('https://raw.githubusercontent.com/UniversalDependencies/UD_English-ParTUT/r2.7/en_partut-ud-train.conllu', 'en_partut-ud-train.conllu')
+    urllib.request.urlretrieve('http://archive.aueb.gr:8085/files/en_partut-ud-dev.conllu', 'en_partut-ud-dev.conllu')
+    urllib.request.urlretrieve('http://archive.aueb.gr:8085/files/en_partut-ud-test.conllu', 'en_partut-ud-test.conllu')
+    urllib.request.urlretrieve('http://archive.aueb.gr:8085/files/en_partut-ud-train.conllu', 'en_partut-ud-train.conllu')
     print('Treebank downloaded.')
 
 
@@ -403,7 +403,7 @@ train_sentences = train_sentences + val_sentences
 
 
 # Initialize session
-sess = tf.compat.v1.Session()
+sess = tf.Session()
 # Params for bert model and tokenization
 bert_path = "https://tfhub.dev/google/bert_uncased_L-12_H-768_A-12/1"
 
@@ -544,7 +544,7 @@ def convert_examples_to_features(tokenizer, examples, max_seq_length=256):
     """Convert a set of `InputExample`s to a list of `InputFeatures`."""
 
     input_ids, input_masks, segment_ids, labels = [], [], [], []
-    for example in tqdm(examples, desc="Converting examples to features"):
+    for example in tqdm_notebook(examples, desc="Converting examples to features"):
         input_id, input_mask, segment_id, label = convert_single_example(
             tokenizer, example, max_seq_length
         )
@@ -646,8 +646,8 @@ print('BERT tokens:',tokens)
 
 bert_labels(train_label[2])
 
-# So the allignment 'warranties' -> 'NOUN' becomes after alligning '##ies' -> 'NOUN'
-# We tested the other (proposed in run_classifier.py) possible allignment 'warrant' -> 'NOUN', but with worse results!
+So the allignment 'warranties' -> 'NOUN' becomes after alligning '##ies' -> 'NOUN'
+We tested the other (proposed in run_classifier.py) possible allignment 'warrant' -> 'NOUN', but with worse results!
 # In[38]:
 
 
@@ -677,7 +677,7 @@ for text, label in zip(train_text[0:1], train_label[0:1]):
 
 
 input_ids, input_masks, segment_ids, labels = [], [], [], []
-for example in tqdm(InputExamples, desc="Converting examples to features"):
+for example in tqdm_notebook(InputExamples, desc="Converting examples to features"):
     input_id, input_mask, segment_id, label = convert_single_example(
         tokenizer, example, MAX_SEQUENCE_LENGTH+2
     )
