@@ -646,8 +646,8 @@ print('BERT tokens:',tokens)
 
 bert_labels(train_label[2])
 
-So the allignment 'warranties' -> 'NOUN' becomes after alligning '##ies' -> 'NOUN'
-We tested the other (proposed in run_classifier.py) possible allignment 'warrant' -> 'NOUN', but with worse results!
+# So the allignment 'warranties' -> 'NOUN' becomes after alligning '##ies' -> 'NOUN'
+# We tested the other (proposed in run_classifier.py) possible allignment 'warrant' -> 'NOUN', but with worse results!
 # In[38]:
 
 
