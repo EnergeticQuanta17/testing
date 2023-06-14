@@ -29,7 +29,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.utils import shuffle
 from sklearn.metrics import recall_score, precision_score, classification_report, accuracy_score, confusion_matrix, f1_score
-from sklearn.metrics.classification import UndefinedMetricWarning
+# from sklearn.metrics.classification import UndefinedMetricWarning
 
 from keras.models import Sequential, Model
 from keras.layers import Embedding, Dense, Input, concatenate, Layer, Lambda, Dropout, Activation
@@ -45,7 +45,7 @@ from bert.tokenization import FullTokenizer
 
 from tqdm import tqdm_notebook
 from IPython.display import Image 
-warnings.filterwarnings(action='ignore', category=UndefinedMetricWarning)
+# warnings.filterwarnings(action='ignore', category=UndefinedMetricWarning)
 
 
 # # Various plot functions
