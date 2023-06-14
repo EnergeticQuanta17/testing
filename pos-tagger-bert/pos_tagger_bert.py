@@ -14,7 +14,7 @@
 # ! pip install pydot
 # ! pip install graphiz
 # ! pip install bert-tensorflow
-get_ipython().system('pip install tensorflow')
+# get_ipython().system('pip install tensorflow')
 
 
 # In[10]:
