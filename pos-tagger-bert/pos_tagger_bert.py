@@ -22,7 +22,7 @@
 
 from numpy.random import seed
 seed(1)
-from tensorflow import set_random_seed
+from tensorflow.compat.v1 import set_random_seed
 set_random_seed(2)
 import pyconll, keras, pickle, os, random, nltk, datetime, warnings, gc, urllib.request, zipfile, collections
 import numpy as np
@@ -39,7 +39,7 @@ from keras.models import load_model
 from keras.utils import plot_model
 from keras.utils.np_utils import to_categorical
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import tensorflow_hub as hub
 from bert.tokenization import FullTokenizer
 
