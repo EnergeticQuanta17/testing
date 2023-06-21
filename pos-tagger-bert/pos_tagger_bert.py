@@ -44,7 +44,7 @@ import tensorflow_hub as hub
 from bert.tokenization import FullTokenizer
 
 from tqdm import tqdm_notebook
-from IPython.display import Image 
+# from IPython.display import Image 
 # warnings.filterwarnings(action='ignore', category=UndefinedMetricWarning)
 
 
@@ -862,7 +862,7 @@ model = build_model(MAX_SEQUENCE_LENGTH+2) # We sum 2 for [CLS], [SEP] tokens
 
 
 plot_model(model, to_file='model.png', show_shapes=True)
-Image('model.png')
+# Image('model.png')
 
 
 # In[56]:
